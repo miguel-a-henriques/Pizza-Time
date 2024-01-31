@@ -6,8 +6,8 @@ class ExtraTimer {
         this.top = Math.floor(Math.random() * (100 - 100) + 100);     // <----- alterar valores
 
         this.left = 850;
-        this.width = 100;
-        this.height = 100;
+        this.width = 70;
+        this.height = 70;
 
         // Create the HTML element and create default styling
         this.element = document.createElement("img");
@@ -23,7 +23,7 @@ class ExtraTimer {
 
     move(){
         // Move obstacle down
-        this.left -= 10;    
+        this.left -= 7;    
         this.updatePosition();
     }
 

@@ -6,8 +6,8 @@ class Obstacle {
         this.top = Math.floor(Math.random() * (550 - 350) + 350);     // <----- alterar valores
 
         this.left = 850;
-        this.width = 90;
-        this.height = 100;
+        this.width = 80;
+        this.height = 90;
 
         // Create the HTML element and create default styling
         this.element = document.createElement("img");

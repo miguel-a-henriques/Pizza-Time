@@ -26,7 +26,7 @@ class Game {
         // Timer
 
         this.timerIntervall = null;
-        this.timer = 60;
+        this.timer = 30;
 
         // Pineapples and Pizzas
         this.obstacles = [];
@@ -36,9 +36,10 @@ class Game {
 
         // Score
         this.score = 0;
+        this.highScore = localStorage.getItem("highScore");
 
         // Lives
-        this.lives = 3;
+        this.lives = 10;
 
         // Variable to Check if the Game is Over;
         this.gameIsOver = false;
@@ -65,6 +66,7 @@ class Game {
         this.instructionsScreen.style.display= "none";
     //Shows the game screen.
         this.gameScreen.style.display = "block";
+        this.statsScreen.style.display = "block";
     //Starts the game loop. 
         this.gameLoop();
 
@@ -211,7 +213,7 @@ class Game {
         
                 this.extraTimer.splice(i, 1);
         
-                this.timer += 5;
+                this.timer += 10;
             } else if (extraTime.left <= 0) {
                 // Remove the ExtraTimer HTML Element from the HTML
                 extraTime.element.remove();
@@ -226,7 +228,7 @@ class Game {
             setTimeout(() => {
                 this.extraTimer.push(new ExtraTimer(this.gameScreen));
                 this.isPushingExtraTimer = false;
-            }, 2000);
+            }, 10000);
         }
     score.innerHTML = this.score;     // score and lives
     lives.innerHTML = this.lives;
@@ -297,17 +299,26 @@ class Game {
             point.element.remove();
         })
 
+        this.statsScreen.style.display = "none";
         this.gameScreen.style.display = "none";
         this.gameVictoryScreen.style.display = "block";
 
         this.soundtrack.pause();
         this.victoryAudio.play();
 
-        this.highScore = localStorage.getItem("highScore");
-        localStorage.setItem("highScore",this.score);
         if (this.score > this.highScore) {
             localStorage.setItem("highScore",this.score);
         }
+        this.highScore = localStorage.getItem("highScore");
+       
+
+        let finalScore = document.createElement("h2");
+        finalScore.innerHTML = `Your score: ${this.score}`;
+        this.gameVictoryScreen.appendChild(finalScore);
+
+        let highScoreDisplay = document.createElement("h2");
+        highScoreDisplay.innerHTML = `HighScore: ${this.highScore}`;
+        this.gameVictoryScreen.appendChild(highScoreDisplay);
     }
    
 }
