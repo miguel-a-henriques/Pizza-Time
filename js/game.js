@@ -83,6 +83,7 @@ class Game {
     
     this.soundtrack = document.getElementById("soundtrack");
     this.soundtrack.play();
+    this.soundtrack.loop = true;
 
     }
     
