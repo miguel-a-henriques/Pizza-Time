@@ -7,11 +7,7 @@ class Game {
         this.gameOverScreen = document.getElementById("game-over");
         this.gameVictoryScreen = document.getElementById("game-victory");
         this.timeRemaining = document.getElementById("timeRemaining");
-<<<<<<< HEAD
         this.statsScreen = document.getElementById("stats");
-=======
-        this.statsScreen = document.querySelector(".stats");
->>>>>>> 901ceb480880a8a5c850401a0f4b5e1e22552b96
         this.instructionsScreen = document.getElementById("instructions");
         
 
