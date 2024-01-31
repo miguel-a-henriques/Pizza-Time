@@ -15,7 +15,7 @@ class Game {
             this.gameScreen,
             0 ,
             500 ,
-            120 ,   // valores já alterados
+            120 ,
             170 ,
             "./images/running-test.gif");
 
@@ -28,11 +28,11 @@ class Game {
         this.timerIntervall = null;
         this.timer = 30;
 
-        // Pineapples and Pizzas
+        // Obstacles, Points and extra Time
         this.obstacles = [];
         this.points = [];
-        this.extraPoints = []
-        this.extraTimer = []
+        this.extraPoints = [];
+        this.extraTimer = [];
 
         // Score
         this.score = 0;
@@ -44,12 +44,13 @@ class Game {
         // Variable to Check if the Game is Over;
         this.gameIsOver = false;
 
-        // Variable to Check If I'm in the Process of Crating an Obstacle
+        // Variable to Check If I'm in the Process of Crating an Object
         this.isPushingObstacle = false;
         this.isPushingPoint = false;
         this.isPushingExtraPoint = false;
         this.isPushingExtraTimer = false;
-
+        
+        // Sounds for the game
         this.soundtrack = null;
         this.victoryAudio = document.getElementById("victory-audio");
         this.gameOverAudio = document.getElementById("game-over-audio");
@@ -103,7 +104,7 @@ class Game {
         let score = document.getElementById("score");
         let lives = document.getElementById("lives");
 
-        /*  Every Frame of the Game, I want to check if the car is moving */
+        /*  Every Frame of the Game, I want to check if the player is moving */
         this.player.move();
 
         //-------------------OBSTACLES---------------------------
@@ -191,12 +192,8 @@ class Game {
 
             } else if(extraPoint.left <= 0){
                 
-                
-
-                // Remove the Obstacle HTML Element from the HTML
                 extraPoint.element.remove();
 
-                // Remove the Obstacle from the Game Class'obstacles array
                 this.extraPoints.splice ( i , 1 )
             }
         
