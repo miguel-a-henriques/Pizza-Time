@@ -22,7 +22,7 @@ class Point {
     }
 
     move(){
-        // Move obstacle down
+        // Move RIGHT TO LEFT
         this.left -= 3;    
         this.updatePosition();
     }

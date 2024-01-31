@@ -7,6 +7,8 @@ window.onload = function () {
 
   let game;
 
+  //--------------------------------------------------BUTTONS----------------------------------------------------------->
+
   playButton.addEventListener("click", function() {
     startScreen.style.display = "none";
     instructionsScreen.style.display = "block"
@@ -22,6 +24,8 @@ window.onload = function () {
     })
   })
 
+  //--------------------------------------------------GAME----------------------------------------------------------->
+
   function startGame() {
     game = new Game();
     game.start();
@@ -33,7 +37,7 @@ window.onload = function () {
 
   
 
-
+//--------------------------------------------------CONTROLS----------------------------------------------------------->
   function handleKeydown(event){
     const key = event.key;
     const possibleKeys = [

@@ -33,16 +33,18 @@ class Player {
 
     }
 
+//--------------------------------------------------MOVE AND JUMP----------------------------------------------------------->
+
     move() {
         this.left += this.directionX;
         this.top += this.directionY;
 
 
-        // Handle the right side of the screen; the car stops at the right border
+        // Handle the right side of the screen;
         if(this.left + this.width > this.gameScreen.offsetWidth){ // offsetWidth is width + padding + borders
             this.left = this.gameScreen.offsetWidth - this.width;
         }
-        //Handle the left side of the screen; car stops at left border of game screen;
+        //Handle the left side of the screen; 
         else if(this.left <= 0) {
             this.left = 0;
         }
@@ -80,6 +82,7 @@ class Player {
         }
     }
 
+    //--------------------------------------------------UPDATE POSITION----------------------------------------------------------->
     updatePosition() {
         this.left += this.directionX;
         this.top += this.directionY;
@@ -103,7 +106,7 @@ class Player {
     }
 
 
-    // always used to check crash ***********************
+    //--------------------------------------------------COLLISION----------------------------------------------------------->
     didCollide(obstacle) {
         const playerRect = this.element.getBoundingClientRect();
         const obstacleRect = obstacle.element.getBoundingClientRect();

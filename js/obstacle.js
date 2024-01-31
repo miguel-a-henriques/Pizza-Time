@@ -22,7 +22,7 @@ class Obstacle {
     }
 
     move(speed){
-        // Move obstacle down
+        // Move RIGHT TO LEFT
         this.left -= speed;
         this.updatePosition();
     }

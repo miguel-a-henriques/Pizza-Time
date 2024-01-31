@@ -22,7 +22,7 @@ class ExtraTimer {
     }
 
     move(){
-        // Move obstacle
+        // Move RIGHT TO LEFT
         this.left -= 7;    
         this.updatePosition();
     }

@@ -22,7 +22,7 @@ class ExtraPoint {
     }
 
     move(){
-        // Move obstacle
+        // Move RIGHT TO LEFT
         this.left -= 5;    
         this.updatePosition();
     }

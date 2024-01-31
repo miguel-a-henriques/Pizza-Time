@@ -56,7 +56,7 @@ class Game {
         this.gameOverAudio = document.getElementById("game-over-audio");
         
     }
-    
+    //--------------------------------------------------GAME START----------------------------------------------------------->
 
     start(){
     //Sets the height and width of the game screen.
@@ -88,7 +88,7 @@ class Game {
     }
     
    
-
+//--------------------------------------------------LOOP N UPDATE----------------------------------------------------------->
 
     gameLoop(){
         if(this.gameIsOver) {
@@ -108,7 +108,7 @@ class Game {
         /*  Every Frame of the Game, I want to check if the player is moving */
         this.player.move();
 
-        //-------------------OBSTACLES---------------------------
+//--------------------------------------------------OBSTACLES----------------------------------------------------------->
         for (let i=0;i<this.obstacles.length; i++){
             const obstacle=this.obstacles[i];
             if (this.score >= 80) {
@@ -147,7 +147,7 @@ class Game {
                 },1200);
             }
             
-        //----------------------POINTS---------------------------
+//--------------------------------------------------POINTS----------------------------------------------------------->
         for (let i=0;i<this.points.length; i++){
             const point=this.points[i];
             point.move();
@@ -179,7 +179,7 @@ class Game {
                 this.isPushingPoint = false;
             }, 2000)
         }
-        //-------------------EXTRA-POINTS---------------------------
+//--------------------------------------------------EXTRA POINTS----------------------------------------------------------->
         for (let i=0;i<this.extraPoints.length; i++){
             const extraPoint=this.extraPoints[i];
             extraPoint.move();
@@ -207,7 +207,7 @@ class Game {
                 this.isPushingExtraPoint = false;
             }, 5000)
         }
-        //------------------EXTRA-TIMER-------------------------------
+//--------------------------------------------------EXTRA TIMER----------------------------------------------------------->
         for (let i = 0; i < this.extraTimer.length; i++) {
             const extraTime = this.extraTimer[i];
             extraTime.move();
@@ -237,10 +237,11 @@ class Game {
     score.innerHTML = this.score;     // score and lives
     lives.innerHTML = this.lives;
     
-  
-
     }
-    
+
+    //--------------------------------------------------END GAME----------------------------------------------------------->
+
+    //--------------------------------------------------GAME OVER----------------------------------------------------------->
     endGame(){
         
         clearInterval(this.timerIntervall);
@@ -276,7 +277,9 @@ class Game {
         this.gameOverAudio.play();
 
     }
+//--------------------------------------------------END GAME----------------------------------------------------------->
 
+//--------------------------------------------------VICTORY----------------------------------------------------------->
     endGameVictory() {
         // Change the gameIsOver status. If it's ture, remember that this is going to break the animation loop.
         this.gameIsOver = true;
