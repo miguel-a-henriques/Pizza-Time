@@ -30,8 +30,7 @@ class Player {
         this.jumpStrength = 4;
         this.isJumping = false;
         this.jumpStartTime = 0;
-        this.jumpCount = 0;
-        this.maxJumps = 2;
+
     }
 
     move() {
@@ -64,14 +63,10 @@ class Player {
         // Jump handling
         if (this.isJumping) {
             const elapsedTime = performance.now() - this.jumpStartTime;
-            if (elapsedTime < 350 && this.jumpCount < this.maxJumps) { // Adjust jump duration as needed
+            if (elapsedTime < 350) { // Adjust jump duration as needed
                 this.directionY = -this.jumpStrength;
             } else {
                 this.isJumping = false;
-                if (this.top + this.height >= this.gameScreen.offsetHeight) {
-                    // Reset jump count when landing
-                    this.jumpCount = 0;
-                }
             }
         }
 
@@ -82,7 +77,6 @@ class Player {
         if (!this.isJumping) {
             this.isJumping = true;
             this.jumpStartTime = performance.now();
-            this.jumpCount ++;
         }
     }
 

@@ -39,7 +39,7 @@ class Game {
         this.highScore = localStorage.getItem("highScore");
 
         // Lives
-        this.lives = 10;
+        this.lives = 3;
 
         // Variable to Check if the Game is Over;
         this.gameIsOver = false;

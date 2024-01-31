@@ -41,6 +41,7 @@ body {
 }
 #game-over{
   display:none;
+  align-content: center;
 }
 #game-victory{
   display: none;
@@ -75,4 +76,18 @@ body button {
 
 #stats {
   display: none;
+}
+
+
+.coin img {
+  height: 40px;
+  width: 40px;
+}
+
+.coin {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  padding-left: 30px;
 }
