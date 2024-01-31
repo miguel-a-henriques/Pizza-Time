@@ -56,7 +56,7 @@ body {
 .arrows-img {
   width: 150px;
 }
-body button {
+/*body button {
   font-size: 30px;
   background-color: #870007;
   color: #fff;
@@ -65,7 +65,7 @@ body button {
   box-shadow: 0;
   border-radius: 5px;
   margin-bottom: 20px;
-}
+}*/
 #instructions img{
   width:150px;
 }
@@ -90,4 +90,33 @@ body button {
   align-content: center;
   justify-content: center;
   padding-left: 30px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: rgb(207, 34, 15);
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 5px 5px 0px #000;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #fff;
+  color:rgb(207, 34, 15);
+  border: 2px solid rgb(207, 34, 15);
+  box-shadow: 5px 5px 0px rgb(207, 34, 15);
+}
+
+.button:active {
+  background-color: #fcf414;
+  box-shadow: none;
+  transform: translateY(4px);
 }
