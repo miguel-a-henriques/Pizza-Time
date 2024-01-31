@@ -4,13 +4,11 @@ body {
   margin: 0;
   text-align: center;
   color:white;
-  font-family: 'Games', sans-serif;
+  font-family: "Retro Gaming", sans-serif;
   display:block;
   background-position: center;
-
- 
-  
 }
+
 #game-intro {
   padding: 20px 0px;
 }
@@ -91,6 +89,7 @@ body {
 .button {
   display: inline-block;
   padding: 10px 20px;
+  font-family: "Retro Gaming";
   font-size: 24px;
   font-weight: bold;
   text-align: center;
