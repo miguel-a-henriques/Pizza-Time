@@ -32,6 +32,7 @@ class Game {
         this.obstacles = [];
         this.points = [];
         this.extraPoints = []
+        this.extraTimer = []
 
         // Score
         this.score = 0;
@@ -46,6 +47,7 @@ class Game {
         this.isPushingObstacle = false;
         this.isPushingPoint = false;
         this.isPushingExtraPoint = false;
+        this.isPushingExtraTimer = false;
 
         this.soundtrack = null;
         this.victoryAudio = document.getElementById("victory-audio");
@@ -199,7 +201,33 @@ class Game {
                 this.isPushingExtraPoint = false;
             }, 2000)
         }
-    
+        //------------------EXTRA-TIMER-------------------------------
+        for (let i = 0; i < this.extraTimer.length; i++) {
+            const extraTime = this.extraTimer[i];
+            extraTime.move();
+        
+            if (this.player.didCollide(extraTime)) { // Corrected variable name
+                extraTime.element.remove();
+        
+                this.extraTimer.splice(i, 1);
+        
+                this.timer += 5;
+            } else if (extraTime.left <= 0) {
+                // Remove the ExtraTimer HTML Element from the HTML
+                extraTime.element.remove();
+        
+                // Remove the ExtraTimer from the Game Class' extraTimer array
+                this.extraTimer.splice(i, 1);
+            }
+        }
+        
+        if (!this.extraTimer.length && !this.isPushingExtraTimer) {
+            this.isPushingExtraTimer = true;
+            setTimeout(() => {
+                this.extraTimer.push(new ExtraTimer(this.gameScreen));
+                this.isPushingExtraTimer = false;
+            }, 2000);
+        }
     score.innerHTML = this.score;     // score and lives
     lives.innerHTML = this.lives;
     
@@ -274,6 +302,12 @@ class Game {
 
         this.soundtrack.pause();
         this.victoryAudio.play();
+
+        this.highScore = localStorage.getItem("highScore");
+        localStorage.setItem("highScore",this.score);
+        if (this.score > this.highScore) {
+            localStorage.setItem("highScore",this.score);
+        }
     }
    
 }

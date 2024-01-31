@@ -1,7 +1,7 @@
 class Obstacle {
     constructor(gameScreen){
         this.gameScreen = gameScreen;
-
+        
         // Random Position
         this.top = Math.floor(Math.random() * (550 - 350) + 350);     // <----- alterar valores
 
