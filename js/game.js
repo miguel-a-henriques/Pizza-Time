@@ -109,7 +109,13 @@ class Game {
         //-------------------OBSTACLES---------------------------
         for (let i=0;i<this.obstacles.length; i++){
             const obstacle=this.obstacles[i];
-            obstacle.move();
+            if (this.score >= 100) {
+                obstacle.move(10);
+            } else if (this.score < 100 && this.score > 50) {
+                obstacle.move(6);
+            } else {
+                obstacle.move(4);
+            }
 
             if(this.player.didCollide(obstacle)){
                 obstacle.element.remove();

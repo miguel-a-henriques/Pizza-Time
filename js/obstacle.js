@@ -21,9 +21,9 @@ class Obstacle {
         this.gameScreen.appendChild(this.element);
     }
 
-    move(){
+    move(speed){
         // Move obstacle down
-        this.left -= 5;    
+        this.left -= speed;
         this.updatePosition();
     }
 
