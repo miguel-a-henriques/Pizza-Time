@@ -31,6 +31,7 @@ class Game {
         // Pineapples and Pizzas
         this.obstacles = [];
         this.points = [];
+        this.extraPoints = []
 
         // Score
         this.score = 0;
@@ -44,6 +45,7 @@ class Game {
         // Variable to Check If I'm in the Process of Crating an Obstacle
         this.isPushingObstacle = false;
         this.isPushingPoint = false;
+        this.isPushingExtraPoint = false;
 
         this.soundtrack = null;
         this.victoryAudio = document.getElementById("victory-audio");
@@ -100,7 +102,7 @@ class Game {
         /*  Every Frame of the Game, I want to check if the car is moving */
         this.player.move();
 
-        // Iterate over the obstacles array and make them move
+        //-------------------OBSTACLES---------------------------
         for (let i=0;i<this.obstacles.length; i++){
             const obstacle=this.obstacles[i];
             obstacle.move();
@@ -133,7 +135,7 @@ class Game {
                 },1000);
             }
             
-        // Iterate over the points array and make them move
+        //----------------------POINTS---------------------------
         for (let i=0;i<this.points.length; i++){
             const point=this.points[i];
             point.move();
@@ -163,6 +165,38 @@ class Game {
             setTimeout(()=>{
                 this.points.push(new Point(this.gameScreen));
                 this.isPushingPoint = false;
+            }, 2000)
+        }
+        //-------------------EXTRA-POINTS---------------------------
+        for (let i=0;i<this.extraPoints.length; i++){
+            const extraPoint=this.extraPoints[i];
+            extraPoint.move();
+
+            if(this.player.didCollide(extraPoint)){
+                extraPoint.element.remove();
+
+                this.extraPoints.splice(i,1);
+
+                this.score += 5;
+
+            } else if(extraPoint.left <= 0){
+                
+                
+
+                // Remove the Obstacle HTML Element from the HTML
+                extraPoint.element.remove();
+
+                // Remove the Obstacle from the Game Class'obstacles array
+                this.extraPoints.splice ( i , 1 )
+            }
+        
+        }
+        
+        if (!this.extraPoints.length && !this.isPushingExtraPoint) {
+            this.isPushingExtraPoint = true;
+            setTimeout(()=>{
+                this.extraPoints.push(new ExtraPoint(this.gameScreen));
+                this.isPushingExtraPoint = false;
             }, 2000)
         }
     
