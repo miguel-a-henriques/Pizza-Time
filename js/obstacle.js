@@ -7,7 +7,7 @@ class Obstacle {
 
         this.left = 850;
         this.width = 80;
-        this.height = 90;
+        this.height = 80;
 
         // Create the HTML element and create default styling
         this.element = document.createElement("img");

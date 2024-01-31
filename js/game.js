@@ -109,9 +109,9 @@ class Game {
         //-------------------OBSTACLES---------------------------
         for (let i=0;i<this.obstacles.length; i++){
             const obstacle=this.obstacles[i];
-            if (this.score >= 100) {
+            if (this.score >= 80) {
                 obstacle.move(10);
-            } else if (this.score < 100 && this.score > 50) {
+            } else if (this.score < 80 && this.score > 25) {
                 obstacle.move(6);
             } else {
                 obstacle.move(4);
@@ -142,7 +142,7 @@ class Game {
                 setTimeout(()=>{
                     this.obstacles.push(new Obstacle(this.gameScreen))
                     this.isPushingObstacle = false;
-                },1000);
+                },1200);
             }
             
         //----------------------POINTS---------------------------
@@ -207,7 +207,7 @@ class Game {
             setTimeout(()=>{
                 this.extraPoints.push(new ExtraPoint(this.gameScreen));
                 this.isPushingExtraPoint = false;
-            }, 2000)
+            }, 5000)
         }
         //------------------EXTRA-TIMER-------------------------------
         for (let i = 0; i < this.extraTimer.length; i++) {

@@ -3,7 +3,7 @@ class ExtraTimer {
         this.gameScreen = gameScreen;
 
         // Random Position
-        this.top = Math.floor(Math.random() * (100 - 100) + 100);     // <----- alterar valores
+        this.top = Math.floor(Math.random() * (100 - 70) + 70);     // <----- alterar valores
 
         this.left = 850;
         this.width = 70;
@@ -22,7 +22,7 @@ class ExtraTimer {
     }
 
     move(){
-        // Move obstacle down
+        // Move obstacle
         this.left -= 7;    
         this.updatePosition();
     }

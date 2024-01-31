@@ -64,7 +64,7 @@ class Player {
         // Jump handling
         if (this.isJumping) {
             const elapsedTime = performance.now() - this.jumpStartTime;
-            if (elapsedTime < 350 && this.jumpCount < this.maxJumps) { // Adjust jump duration as needed
+            if (elapsedTime < 450 && this.jumpCount < this.maxJumps) { // Adjust jump duration as needed
                 this.directionY = -this.jumpStrength;
             } else {
                 this.isJumping = false;

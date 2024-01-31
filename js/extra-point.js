@@ -3,11 +3,11 @@ class ExtraPoint {
         this.gameScreen = gameScreen;
 
         // Random Position
-        this.top = Math.floor(Math.random() * (100 - 100) + 100);     // <----- alterar valores
+        this.top = Math.floor(Math.random() * (100 - 70) + 70);     // <----- alterar valores
 
         this.left = 850;
-        this.width = 100;
-        this.height = 100;
+        this.width = 80;
+        this.height = 80;
 
         // Create the HTML element and create default styling
         this.element = document.createElement("img");
@@ -22,8 +22,8 @@ class ExtraPoint {
     }
 
     move(){
-        // Move obstacle down
-        this.left -= 3;    
+        // Move obstacle
+        this.left -= 5;    
         this.updatePosition();
     }
 
