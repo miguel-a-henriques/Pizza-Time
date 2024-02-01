@@ -182,7 +182,7 @@ class Game {
             setTimeout(()=>{
                 this.points.push(new Point(this.gameScreen));
                 this.isPushingPoint = false;
-            }, 2000)
+            }, 1000)
         }
 //--------------------------------------------------EXTRA POINTS----------------------------------------------------------->
         for (let i=0;i<this.extraPoints.length; i++){
@@ -210,7 +210,7 @@ class Game {
             setTimeout(()=>{
                 this.extraPoints.push(new ExtraPoint(this.gameScreen));
                 this.isPushingExtraPoint = false;
-            }, 5000)
+            }, 2000)
         }
 //--------------------------------------------------EXTRA TIMER----------------------------------------------------------->
         for (let i = 0; i < this.extraTimer.length; i++) {
