@@ -109,14 +109,15 @@ class Game {
         this.player.move();
 
 //--------------------------------------------------OBSTACLES----------------------------------------------------------->
+            // It determines the speed according to the score. More score, more speed.
         for (let i=0;i<this.obstacles.length; i++){
             const obstacle=this.obstacles[i];
-            if (this.score >= 80) {
-                obstacle.move(10);
-            } else if (this.score < 80 && this.score > 25) {
-                obstacle.move(6);
-            } else {
-                obstacle.move(4);
+            if (this.score >= 80) {                             // Hard
+                obstacle.move(10); // speed in px
+            } else if (this.score < 80 && this.score > 25) {    // Medium
+                obstacle.move(6); // speed in px
+            } else {                                            // Easy - start
+                obstacle.move(4); // speed in px
             }
 
             if(this.player.didCollide(obstacle)){
@@ -142,9 +143,13 @@ class Game {
         else if(!this.obstacles.length && !this.isPushingObstacle){
                 this.isPushingObstacle = true;
                 setTimeout(()=>{
-                    this.obstacles.push(new Obstacle(this.gameScreen))
+                    this.obstacles.push(new Obstacle(this.gameScreen));
                     this.isPushingObstacle = false;
-                },1200);
+                },1000);
+                setTimeout(()=>{
+                    this.obstacles.push(new Obstacle(this.gameScreen));
+                    this.isPushingObstacle = false;
+                },2500);
             }
             
 //--------------------------------------------------POINTS----------------------------------------------------------->
