@@ -26,11 +26,11 @@ body {
   position:relative;
   background-image:url(../images/City1.png);
   background-size:cover;
-  animation: slide 5s linear infinite;
+  animation: slide 90s linear infinite;
 }
 @keyframes slide {
   0% {
-    background-position: 1000px 0px;
+    background-position: 15000px 0px;
   }
   95% {
     background-position: 0 0;
