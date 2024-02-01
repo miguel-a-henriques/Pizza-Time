@@ -11,7 +11,7 @@ class ExtraPoint {
 
         // Create the HTML element and create default styling
         this.element = document.createElement("img");
-        this.element.src = "./images/pizza-extra-point.png";   //    
+        this.element.src = "./docs/images/pizza-extra-point.png";   //    
         this.element.style.position = "absolute";
         this.element.style.width = `${this.width}px`;
         this.element.style.height = `${this.height}px`;

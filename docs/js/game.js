@@ -17,7 +17,7 @@ class Game {
             500 ,
             120 ,
             170 ,
-            "./images/running-test.gif");
+            "./docs/images/running-test.gif");
 
 
         this.height = 600;
